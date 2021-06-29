@@ -1,6 +1,6 @@
 <template>
 	<view class="center">
-		<view class="logo" @click="goLogin" :hover-class="!login ? 'logo-hover' : ''">
+<!-- 		<view class="logo" @click="goLogin" :hover-class="!login ? 'logo-hover' : ''">
 			<image class="logo-img" :src="login ? uerInfo.avatarUrl :avatarUrl"></image>
 			<view class="logo-title">
 				<text class="uer-name">Hi，{{login ? uerInfo.name : '您未登录'}}</text>
@@ -19,19 +19,20 @@
 				<text class="navigat-arrow">&#xe65e;</text>
 			</view>
 		</view>
-		<view class="center-list">
+ -->
+		 <view class="center-list">
 			<view class="center-list-item border-bottom">
 				<text class="list-icon">&#xe60b;</text>
-				<text class="list-text">管理图片</text>
+				<text class="list-text">制作nft</text>
 				<text class="navigat-arrow">&#xe65e;</text>
 			</view>
 			<view class="center-list-item">
 				<text class="list-icon">&#xe61a;</text>
-				<text class="list-text">上传图片</text>
+				<text @click="goUpload()" class="list-text">上传图片</text>
 				<text class="navigat-arrow">&#xe65e;</text>
 			</view>
 		</view>
-		<view class="center-list">
+<!-- 		<view class="center-list">
 			<view class="center-list-item border-bottom" @click="goAbout">
 				<text class="list-icon">&#xe603;</text>
 				<text class="list-text">关于</text>
@@ -43,7 +44,8 @@
 				<text class="navigat-arrow">&#xe65e;</text>
 			</view>
 		</view>
-	</view>
+ -->
+	 </view>
 </template>
 
 <script>
@@ -66,6 +68,11 @@
 			goAbout() {
 				uni.navigateTo({
 					url: '/pages/about/about'
+				});
+			},
+			goUpload(){
+				uni.navigateTo({
+					url: '/pages/upload/upload'
 				});
 			}
 		}
