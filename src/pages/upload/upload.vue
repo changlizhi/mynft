@@ -27,7 +27,7 @@
 					success: function(res) {
 						console.log(res)
 						uni.uploadFile({
-							url: this.host+'/file_upload', //	后端api接口
+							url: _self.host+'/file_upload', //	后端api接口
 							filePath: res.tempFilePaths[0], //	uni.chooseImage函数调用后获取的本地文件路劲
 							name: 'file',
 							success: (res) => {
@@ -59,7 +59,7 @@
 
 
 				uni.request({
-					url: this.host+"/makenft", //	后端api接口
+					url: _self.host+"/makenft", //	后端api接口
 					method: 'POST',
 					dataType:"json",
 					data: {
