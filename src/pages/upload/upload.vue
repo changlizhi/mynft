@@ -11,7 +11,8 @@
 		data() {
 			return {
 				iconcheck: 0, //头像是否改变
-				baseUrl: "http://192.168.120.16:8081/public/",
+				baseUrl: "http://159.138.143.51:8081/public/",
+				host:"http://159.138.143.51:8081",
 				image: "" //默认头像
 			}
 		},
@@ -26,7 +27,7 @@
 					success: function(res) {
 						console.log(res)
 						uni.uploadFile({
-							url: 'http://192.168.120.16:8081/file_upload', //	后端api接口
+							url: this.host+'/file_upload', //	后端api接口
 							filePath: res.tempFilePaths[0], //	uni.chooseImage函数调用后获取的本地文件路劲
 							name: 'file',
 							success: (res) => {
@@ -58,7 +59,7 @@
 
 
 				uni.request({
-					url: "http://192.168.120.16:8081/makenft", //	后端api接口
+					url: this.host+"/makenft", //	后端api接口
 					method: 'POST',
 					dataType:"json",
 					data: {
