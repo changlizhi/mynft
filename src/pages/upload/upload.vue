@@ -2,17 +2,16 @@
 	<view class="grid">
 		<view class = "card mycard">
 			<view class="showRed">
-				说明:蓝色字体可点击复制内容
+				说明:蓝色字体可点击复制内容，制作完成后将自动跳转至ETH浏览器，请保持您的网络畅通（需要翻墙）
 			</view>
-				铸造完nft后可以在eth的rinkeby网查看钱包
-				<view @tap="fuZhiQianBao()" class="showBlue">0xaf6d667582953Eee0b059F656e8b125Aae636F53</view>
-				对应的账户中Erc721代币数量是否增长，
-			地址为 <view class="showBlue" @tap="fuZhiEth()">https://rinkeby.etherscan.io/address/0xaf6d667582953eee0b059f656e8b125aae636f53#tokentxnsErc721</view>
-			
+			铸造完nft后可以在eth的rinkeby网查看钱包
+			<view @tap="fuZhiQianBao()" class="showBlue">0xaf6d667582953Eee0b059F656e8b125Aae636F53</view>
+			对应的账户中Erc721代币数量是否增长，地址为
+			<view class="showBlue" @tap="fuZhiEth()">https://rinkeby.etherscan.io/address/0xaf6d667582953eee0b059f656e8b125aae636f53#tokentxnsErc721</view>			
 			也可以使用metamask钱包导入助记词
 			<view @tap="fuZhiZhuJiCi()" class="showBlue">cabbage fragile suspect pig alley story capital strike mandate crop feel tunnel</view>
-			，然后使用metamask授权给opensea后进行查看或者销售铸造成功的nft
-			地址为 <view class="showBlue" @tap="fuZhiOpensea()">https://testnets.opensea.io/account</view>
+			，然后使用metamask授权给opensea后进行查看或者销售铸造成功的nft地址为
+			<view class="showBlue" @tap="fuZhiOpensea()">https://testnets.opensea.io/account</view>
 		</view>
 		<button type="primary" @tap="cI">选择图片</button>
 		<image v-if="image	!==	''" :src="image"></image>
@@ -31,13 +30,38 @@
 			}
 		},
 		methods: {
+			fuZhi(neirong){
+				uni.setClipboardData({
+					data:neirong,
+					success:function(succ){
+						console.log("succclip---:",succ)
+						uni.showToast({
+							title:"复制成功"
+						})
+					},
+					fail:function(error){
+						uni.showToast({
+							title:"复制失败"
+						})
+					}
+				})
+			},
+			fuZhiQianBao(){this.fuZhi("0xaf6d667582953Eee0b059F656e8b125Aae636F53")},
+			fuZhiEth(){this.fuZhi("https://rinkeby.etherscan.io/address/0xaf6d667582953eee0b059f656e8b125aae636f53#tokentxnsErc721")},
+			fuZhiZhuJiCi(){this.fuZhi("cabbage fragile suspect pig alley story capital strike mandate crop feel tunnel")},
+			fuZhiOpensea(){this.fuZhi("https://testnets.opensea.io/account")},
+			
 			toOpensea(){
 				console.log(12334)
 				location.href="https://testnets.opensea.io/account"
 			},
 			toEth(){
-				console.log(123345)
-				location.href="https://rinkeby.etherscan.io/address/0xaf6d667582953eee0b059f656e8b125aae636f53#tokentxnsErc721"
+				uni.showToast({
+					title:"跳转至ETH...",
+					success:function(){
+						location.href="https://rinkeby.etherscan.io/address/0xaf6d667582953eee0b059f656e8b125aae636f53#tokentxnsErc721"
+					}
+				})
 			},
 			cI() {
 				let _self = this;
@@ -94,6 +118,9 @@
 							uni.showToast({
 								icon: 'success',
 								title: "铸造成功...",
+								success:function(){
+									_self.toEth()
+								}
 							})
 						}
 						setTimeout(() => {
@@ -116,24 +143,25 @@
 
 <style>
 	.grid{
-		font-size: 10px;
+		font-size: 30rpx;
 	}
 .mycard{
-	height: 30%;
-	padding: 2%;
-	margin: 2%;
+	height: 56%;
+	padding: 1%;
+	margin: 1%;
 	word-wrap: break-word;
 	word-break: break-all;
 }
 .showBlue{
-	font-size: 20rpx;
+	font-size: 22rpx;
 	color: #007AFF;
 	word-wrap: normal;
-	margin: 10px;
+	margin: 2px;
 }
 .showRed{
-	font-size: 20rpx;
+	font-size: 28rpx;
 	color: #E96900;
 	word-wrap: normal;
+	margin-bottom: 4px;
 }
 </style>
