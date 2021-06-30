@@ -16,8 +16,8 @@
 			<view class="showBlue opensea" @tap="fuZhiOpensea()">https://testnets.opensea.io/account</view>
 		</view>
 		<button type="primary" @tap="cI">选择图片</button>
-		<image v-if="image	!==	''" :src="image"></image>
 		<button type="primary" v-if="image	!==	''" @tap="makeNFT">铸造为nft</button>
+		<image v-if="image	!==	''" :src="image"></image>
 	</view>
 </template>
 
