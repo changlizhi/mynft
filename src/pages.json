@@ -4,14 +4,14 @@
 			"path": "pages/upload/upload",
 			"style": {
 				"navigationBarTitleText": "我的",
-				"enablePullDownRefresh": true
+				"enablePullDownRefresh": false
 			}
 		},
 		{
 			"path": "pages/hot/hot",
 			"style": {
 				"navigationBarTitleText": "最热",
-				"enablePullDownRefresh": true
+				"enablePullDownRefresh": false
 			}
 		},
 		{
