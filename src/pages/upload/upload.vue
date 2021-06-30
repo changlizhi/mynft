@@ -105,10 +105,10 @@
 			},
 			toEth() {
 				uni.showToast({
-					title: "跳转至ETH...",
+					title: "跳转至opensea...",
 					success: function() {
 						location.href =
-							"https://rinkeby.etherscan.io/address/0xaf6d667582953eee0b059f656e8b125aae636f53#tokentxnsErc721"
+							"https://testnets.opensea.io/account"
 					}
 				})
 			},
