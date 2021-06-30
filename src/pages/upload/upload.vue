@@ -1,13 +1,18 @@
 <template>
 	<view class="grid">
 		<view class = "card mycard">
-			说明:铸造完nft后可以在eth的rinkeby网查看钱包0xaf6d667582953Eee0b059F656e8b125Aae636F53对应的账户中Erc721代币数量是否增长，
-			地址为 <view class="showBlue" @tap="toEth()">https://rinkeby.etherscan.io/address/0xaf6d667582953eee0b059f656e8b125aae636f53#tokentxnsErc721</view>
+			<view class="showRed">
+				说明:蓝色字体可点击复制内容
+			</view>
+				铸造完nft后可以在eth的rinkeby网查看钱包
+				<view @tap="fuZhiQianBao()" class="showBlue">0xaf6d667582953Eee0b059F656e8b125Aae636F53</view>
+				对应的账户中Erc721代币数量是否增长，
+			地址为 <view class="showBlue" @tap="fuZhiEth()">https://rinkeby.etherscan.io/address/0xaf6d667582953eee0b059f656e8b125aae636f53#tokentxnsErc721</view>
 			
 			也可以使用metamask钱包导入助记词
-			<view class="showBlue">cabbage fragile suspect pig alley story capital strike mandate crop feel tunnel</view>
+			<view @tap="fuZhiZhuJiCi()" class="showBlue">cabbage fragile suspect pig alley story capital strike mandate crop feel tunnel</view>
 			，然后使用metamask授权给opensea后进行查看或者销售铸造成功的nft
-			地址为 <view class="showBlue" @tap="toOpensea()">https://testnets.opensea.io/account</view>
+			地址为 <view class="showBlue" @tap="fuZhiOpensea()">https://testnets.opensea.io/account</view>
 		</view>
 		<button type="primary" @tap="cI">选择图片</button>
 		<image v-if="image	!==	''" :src="image"></image>
@@ -114,7 +119,7 @@
 		font-size: 10px;
 	}
 .mycard{
-	height: 20%;
+	height: 30%;
 	padding: 2%;
 	margin: 2%;
 	word-wrap: break-word;
@@ -123,6 +128,12 @@
 .showBlue{
 	font-size: 20rpx;
 	color: #007AFF;
+	word-wrap: normal;
+	margin: 10px;
+}
+.showRed{
+	font-size: 20rpx;
+	color: #E96900;
 	word-wrap: normal;
 }
 </style>
