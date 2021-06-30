@@ -1,8 +1,17 @@
 <template>
 	<view class="grid">
+		<view class = "card mycard">
+			说明:铸造完nft后可以在eth的rinkeby网查看钱包0xaf6d667582953Eee0b059F656e8b125Aae636F53对应的账户中Erc721代币数量是否增长，
+			地址为 <view class="showBlue" @tap="toEth()">https://rinkeby.etherscan.io/address/0xaf6d667582953eee0b059f656e8b125aae636f53#tokentxnsErc721</view>
+			
+			也可以使用metamask钱包导入助记词
+			<view class="showBlue">cabbage fragile suspect pig alley story capital strike mandate crop feel tunnel</view>
+			，然后使用metamask授权给opensea后进行查看或者销售铸造成功的nft
+			地址为 <view class="showBlue" @tap="toOpensea()">https://testnets.opensea.io/account</view>
+		</view>
 		<button type="primary" @tap="cI">选择图片</button>
 		<image v-if="image	!==	''" :src="image"></image>
-		<button type="primary" v-if="image	!==	''" @tap="makeNFT">制作为nft</button>
+		<button type="primary" v-if="image	!==	''" @tap="makeNFT">铸造为nft</button>
 	</view>
 </template>
 
@@ -17,6 +26,14 @@
 			}
 		},
 		methods: {
+			toOpensea(){
+				console.log(12334)
+				location.href="https://testnets.opensea.io/account"
+			},
+			toEth(){
+				console.log(123345)
+				location.href="https://rinkeby.etherscan.io/address/0xaf6d667582953eee0b059f656e8b125aae636f53#tokentxnsErc721"
+			},
 			cI() {
 				let _self = this;
 				console.log(_self.image)
@@ -71,7 +88,7 @@
 						if (res.statusCode == 200) {
 							uni.showToast({
 								icon: 'success',
-								title: "修改成功...",
+								title: "铸造成功...",
 							})
 						}
 						setTimeout(() => {
@@ -93,6 +110,19 @@
 </script>
 
 <style>
-
-
+	.grid{
+		font-size: 10px;
+	}
+.mycard{
+	height: 20%;
+	padding: 2%;
+	margin: 2%;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+.showBlue{
+	font-size: 20rpx;
+	color: #007AFF;
+	word-wrap: normal;
+}
 </style>
