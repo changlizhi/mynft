@@ -100,7 +100,7 @@
 					},
 					error(res1) {
 						uni.showToast({
-							title: "添加失败...",
+							title: "铸造失败...",
 						})
 					}
 				});
